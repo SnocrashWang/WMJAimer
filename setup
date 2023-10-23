@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# usage: 初始化并编译项目
+
+project_path=$(pwd)
+
+# 编译
+cd $project_path
+mkdir -p build
+cd build
+cmake ..
+make -j

@@ -1,0 +1,131 @@
+%YAML:1.0
+---
+
+#########################
+# Aimer
+#########################
+
+Aimer:
+    debug: 0
+    # 是否使用EKF
+    ekf_on: 1
+    # 是否使用预测
+    predict_on: 1
+    # 是否跟随装甲板中心
+    track_center: 0  
+
+    # 预测时间
+    time_off: 0.1
+    # 更新装甲板切换的角度阈值，角度制
+    switch_threshold: 15
+    # 初始化位姿变化最大值，角度制
+    init_pose_tolerance: 15
+    # 可接受作为输入数据的装甲板在相机系的最大角度，角度制
+    rubbish_data_tolerance: 50
+
+    # 强制允许发射的目标旋转速度最大值，弧度制
+    force_aim_palstance_threshold: 0.8
+    # 自动击发时目标装甲板绝对偏角最大值，角度制
+    aim_angle_tolerance: 40
+    # 自动击发位姿偏差最大值，弧度制
+    aim_pose_tolerance: 0.05
+    # 装甲板匹配得分最大值
+    score_tolerance: 1.0
+    # 连续识别到全部为白色装甲板的次数容忍度，将会停止发射
+    all_white_tolerance_stop_shoot: 10
+    # 连续识别到全部为白色装甲板的次数容忍度，将会重置
+    all_white_tolerance_reset: 100
+    # 发射间隔，单位：秒
+    shoot_interval: 0.02
+
+    TRACK_CENTER:
+        # 跟随圆心转跟随装甲板的目标旋转速度最大值，弧度制
+        aim_center_palstance_threshold: 6.5
+        # 更换锁中心模式角速度阈值，弧度制
+        switch_trackmode_threshold: 1.2
+        # 跟随圆心自动击发目标偏角判断，角度制
+        aim_center_angle_tolerance: 1
+
+    ROI:
+        min_height: 30
+        roi_height_zoom_rate: 7
+        roi_width_zoom_rate: 3
+
+ModelObserver:
+    debug: 0
+    # 单位时间
+    dt: 0.01
+
+    Standard:
+        # 初始半径
+        init_radius: 0.25
+        # 测距噪声关于角度的增益倍数
+        gain: 15
+
+        # 状态转移噪声系数
+        process_noise:
+            displace_high_diff: 3
+            anglar_high_diff: 15
+            height: 0.0001
+            radius: 0.000005
+
+        # 观测噪声系数
+        measure_noise:
+            pose: 0.002
+            distance: 0.1
+            angle: 0.5
+
+    Balance:
+        # 初始半径
+        init_radius: 0.2
+        # 测距噪声关于角度的增益倍数
+        gain: 30
+
+        # 状态转移噪声系数
+        process_noise:
+            displace_high_diff: 0.2
+            anglar_high_diff: 10
+            height: 0.0001
+            radius: 0.00001
+
+        # 观测噪声系数
+        measure_noise:
+            pose: 0.002
+            distance: 0.01
+            angle: 0.5
+
+
+    Outpost:
+        # 测距噪声关于角度的增益倍数
+        gain: 100
+
+        # 状态转移噪声系数
+        process_noise:
+            displace_high_diff: 0.0001
+            anglar_high_diff: 0.4
+            height: 0.000001
+
+        # 观测噪声系数
+        measure_noise:
+            pose: 0.002
+            distance: 0.04
+            angle: 0.1
+
+MPC:
+    debug: 0
+    # 预测步长
+    step: 5
+
+    process_error_weight:
+        Q0: 10000
+        Q1: 10000
+        Q2: 1
+        Q3: 1
+    process_control_weight:
+        R0: 10
+        R1: 1
+    target_error_weight:
+        F0: 10000
+        F1: 10000
+        F2: 1
+        F3: 1

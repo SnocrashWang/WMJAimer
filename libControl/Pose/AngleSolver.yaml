@@ -1,0 +1,13 @@
+%YAML:1.0
+---
+
+x_off         : 0.099 # 0.05
+y_off         : 0.0 # 0.10258
+z_off         : 0.0485 # 0.0405
+pitch_off     : 0.00
+yaw_off       : 0.00
+chx_off       : 0
+chy_off       : 0
+chz_off       : 0
+
+fix_on        : 1
