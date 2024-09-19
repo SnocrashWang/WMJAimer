@@ -35,6 +35,10 @@ cmake .. && make -j
 
 编译完成后根据需要执行测试程序，测试程序位于 `bin/`
 
+## 项目报告
+
+详见[Wiki](https://github.com/SnocrashWang/WMJAimer/wiki)
+
 ## 项目展示
 
 ### 效果展示
