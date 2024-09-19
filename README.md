@@ -1,6 +1,6 @@
 # README
 
-西北工业大学 WMJ 战队 2023 赛季自瞄预测器开源代码。
+西北工业大学 WMJ 战队 2023 赛季自瞄预测器开源代码，目前核心部分仍在投入比赛使用。
 
 ## 仓库结构
 
@@ -14,7 +14,6 @@
 ├── test                    // 用于存放测试代码
 ├── video                   // 用于存放录制视频
 ├── CMakeLists.txt
-├── Project Report.md       // 项目详细报告
 ├── README.md
 └── setup                   // 初始化仓库脚本
 ```
@@ -35,6 +34,22 @@ cmake .. && make -j
 ```
 
 编译完成后根据需要执行测试程序，测试程序位于 `bin/`
+
+## 项目展示
+
+### 效果展示
+
+- 静态目标
+
+![static_target](https://github.com/SnocrashWang/WMJAimer/blob/master/libControl/Aimer/image/static_target.gif)
+
+- 动态目标
+
+![dynamic_target](https://github.com/SnocrashWang/WMJAimer/blob/master/libControl/Aimer/image/dynamic_target.gif)
+
+### 开发记录
+
+[开发记录](https://www.bilibili.com/video/BV1ha4y1M7Jy/?spm_id_from=333.337.search-card.all.click&vd_source=9d4b3ad031f43830dad4944d85c1384f)
 
 ## 备注
 
